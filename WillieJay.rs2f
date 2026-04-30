@@ -1,0 +1,463 @@
+meta
+{ name = "WillieJay"; 
+  description = "Shows important items as well as resources"; }
+
+// OWNERSHIP
+if
+( ownership:0
+  || ownership:2 )
+{ hidden = true; }
+  
+// TODO -  change wildards to specific items, change ground text color to match menu text color
+
+// HIDDEN
+if
+( name:"potato seed"
+  || name:"onion seed"
+  || name:"cabbage seed"
+  || name:"tomato seed"
+  || name:"sweetcorn seed"
+  || name:"strawberry seed"
+  || name:"watermelon seed"
+  || name:"marigold seed"
+  || name:"rosemary seed"
+  || name:"nasturtium seed"
+  || name:"woad seed"
+  || name:"limpwurt seed"
+  || name:"guam seed"
+  || name:"marrentill seed"
+  || name:"tarromin seed"
+  || name:"barley seed"
+  || name:"hammerstone seed"
+  || name:"asgarnian seed"
+  || name:"jute seed"
+  || name:"yanillian seed"
+  || name:"krandorian seed"
+  || name:"wildblood seed"
+  || name:"redberry seed"
+  || name:"cadavaberry seed"
+  || name:"dwellberry seed"
+  || name:"jangerberry seed"
+  || name:"whiteberry seed"
+  || name:"poison ivy seed"
+  || name:"mushroom spore"
+  || name:"belladonna seed"
+  || name:"cactus seed"
+  || name:"potato cactus seed"
+  || name:"ensouled goblin head"
+  || name:"ensouled monkey head"
+  || name:"ensouled imp head"
+  || name:"ensouled minotaur head"
+  || name:"ensouled scorpion head"
+  || name:"ensouled bear head"
+  || name:"ensouled unicorn head"
+  || name:"copper ore"
+  || name:"tin ore"
+  || name:"waterskin*"
+  || name:"runite ore"
+  && stackable:false 
+  || name:"runite bar"
+  && stackable:false 
+  || name:"gryphon feather"
+  && quantity:<10 )
+{ hidden = true; }
+
+// DROPS — MISCELLANEOUS
+if
+( name:"alchemist's signet"
+  || name:"broken antler"
+  || name:"* champion scroll"
+  || name:"crystal key"
+  || name:"crystal shard"
+  || name:"curved bone"
+  || name:"giant key"
+  || name:"grubby key"
+  || name:"gryphon feather"
+  || name:"* half of key"
+  || name:"long bone"
+  || name:"mossy key"
+  || name:"scaly blue dragonhide"
+  || name:"scurrius' spine"
+  || name:"zombie pirate key" )
+{ textColor = "#ffffff";
+  menuTextColor = "#990000";
+  borderColor = "#990000";
+  backgroundColor = "#69990000";
+  icon = CurrentItem(); 
+  }
+
+
+//Unique tier 5
+if (value: >100000000 && stackable:false)
+{  textColor = "#ffffffff";
+  borderColor = "#a400ff";
+  menuTextColor = "#a400ff";
+  backgroundColor = "#69a400ff";
+  icon = CurrentItem();
+  showLootbeam = true;
+  lootbeamColor = "#a400ff";
+}
+
+//Uniques Tier 4
+
+if (value:>50000000 && value: <99999999 && stackable:false)
+{  textColor = "#ffffff";
+  borderColor = "#ff88e1";
+  menuTextColor = "#ff88e1";
+  backgroundColor = "#69ff88e1";
+  icon = CurrentItem();
+  showLootbeam = true;
+  lootbeamColor = "#ff88e1"; 
+}
+
+//Uniques Tier 3
+if (value:>10000000 && value:<49999999 && stackable:false)
+{  textColor = "#ffffff";
+  borderColor = "#ff9600";
+  menuTextColor = "#ff9600";
+  backgroundColor = "#69ff9600";
+  icon = CurrentItem();
+  showLootbeam = true;
+  lootbeamColor = "#ff9600";
+}
+
+//Uniques Tier 2
+if (value:>1000000 && value:<9999999 && stackable:false)
+{  textColor = "#ffffff";
+  borderColor = "#99ff99";
+  menuTextColor = "#99ff99";
+  backgroundColor = "#6999ff99";
+  icon = CurrentItem();
+  showLootbeam = true;
+  lootbeamColor = "#99ff99";
+}
+
+//UNIQUES - Tier 1
+if (value:>100000 && value:<999999 && stackable:false)
+{  textColor = "#ffffffff";
+  borderColor = "#66b2ff";
+  menuTextColor = "#66b2ff";
+  backgroundColor = "#6966b2ff";
+  icon = CurrentItem();
+  showLootbeam = true;
+  lootbeamColor = "#66b2ff";
+}
+
+// CLUE SCROLLS
+if
+( name:"clue scroll *"
+  || name:"reward casket *" 
+  || name:"scroll box *" )
+{ textColor = "#ffffff";
+  menuTextColor = "#b45f06";
+  borderColor = "#b45f06";
+  backgroundColor = "#69b45f06";
+  icon = File("clues.png"); }
+
+// VALUABLE — COINS
+if
+( name:"coins"
+  && quantity:>=1000 )
+{ textColor = "#ffffff";
+  menuTextColor = "#f1c232";
+  borderColor = "#f1c232";
+  backgroundColor = "#69f1c232";
+  icon = File("valuable.png"); }
+
+// VALUABLE — ALCHABLES
+if
+( name:"rune*" 
+  && havalue:>3000
+  || name:"adamant*" 
+  && havalue:>3000 
+  || name:"*staff" 
+  && havalue:>3000 
+  || name:"battlestaff" )
+{ textColor = "#f1c232";
+  menuTextColor = "#f1c232";
+  icon = File("valuable.png"); }
+
+
+// AMMUNITION — RANGED
+if
+( name:"* arrow"
+  && quantity:>9
+  || name:"* bolts"
+  && quantity:>9
+  || name:"* knife"
+  && quantity:>9
+  || name:"* dart"
+  && quantity:>9
+  || name:"* javelin"
+  && quantity:>9
+  || name:"* thrownaxe"
+  && quantity:>9
+  || name:"*cannonball" )
+{ textColor = "#ffffff";
+  menuTextColor = "#ffffff";
+  icon = File("ranged.png"); }
+
+// AMMUNITION — MAGE
+if
+( name:"law rune"
+  && quantity:>9
+  || name:"chaos rune"
+  && quantity:>9
+  || name:"death rune"
+  && quantity:>9
+  || name:"blood rune"
+  && quantity:>9
+  || name:"wrath rune"
+  && quantity:>9
+  || name:"nature rune"
+  && quantity:>9
+  || name:"cosmic rune"
+  && quantity:>9
+  || name:"astral rune"
+  && quantity:>9
+  || name:"soul rune"
+  && quantity:>9
+  || name:"blighted * sack" )
+{ textColor = "#ffffff";
+  menuTextColor = "#ffffff";
+  icon = File("magic.png"); }
+
+// PRAYER — BONES & ASHES
+if
+( name:"blessed bone shards"
+  || name:"*dragon bones"
+  || name:"wyvern bones"
+  || name:"drake bones"
+  || name:"hydra bones"
+  || name:"dagannoth bones"
+  || name:"*bones"
+  && stackable:true 
+  || name:"infernal ashes")
+{ textColor = "#1155cc";
+  menuTextColor = "#1155cc";
+  icon = File("prayer.png"); }
+
+// PRAYER — ENSOULED HEADS
+if
+( name:"ensouled ogre head"
+  || name:"ensouled elf head"
+  || name:"ensouled troll head"
+  || name:"ensouled kalphite head"
+  || name:"ensouled dagannoth head"
+  || name:"ensouled bloodveld head"
+  || name:"ensouled tzhaar head"
+  || name:"ensouled demon head"
+  || name:"ensouled hellhound head"
+  || name:"ensouled aviansie head"
+  || name:"ensouled abyssal head"
+  || name:"ensouled dragon head" )
+{ textColor = "#1155cc";
+  menuTextColor = "#1155cc";
+  icon = File("prayer.png"); }
+
+// RUNECRAFTING — ESSENCE
+if
+( name:"* essence" 
+  && stackable:true )
+{ icon = File("runecrafting.png"); }
+
+// CONSTRUCTION — PLANKS
+if
+( name:"* plank" 
+  && stackable:true )
+{ icon = File("construction.png"); }
+
+// AGILITY — MARKS OF GRACE
+if
+( name:"mark of grace" )
+{ textColor = "#ffffff";
+  menuTextColor = "#990000";
+  borderColor = "#990000";
+  backgroundColor = "#69990000";
+  icon = File("agility.png"); }
+
+// HERBLORE — HERBS
+if
+( name:"*guam leaf" 
+  || name:"*marrentill"
+  || name:"*tarromin"
+  || name:"*harralander"
+  || name:"*ranarr weed"
+  || name:"*toadflax"
+  || name:"*irit leaf"
+  || name:"*avantoe"
+  || name:"*kwuarm"
+  || name:"*huasca"
+  || name:"*snapdragon"
+  || name:"*cadantine"
+  || name:"*lantadyme"
+  || name:"*dwarf weed"
+  || name:"*torstol" )
+{ icon = File("herblore.png"); }
+
+// HERBLORE — SECONDARIES
+if
+( name:"unicorn horn"
+  || name:"red spiders' eggs"
+  && stackable:true )
+{ icon = File("herblore.png"); }
+
+// CRAFTING — HIDES
+if
+( name:"green dragon*"
+  && stackable:true
+  || name:"blue dragon*"
+  && stackable:true
+  || name:"red dragon*"
+  && stackable:true
+  || name:"black dragon*"
+  && stackable:true )
+{ icon = File("crafting.png"); }
+
+// CRAFTING — GEMS
+if
+( name:"uncut *"
+  && stackable:true
+  || name:"opal"
+  && stackable:true
+  || name:"jade"
+  && stackable:true
+  || name:"red topaz"
+  && stackable:true
+  || name:"sapphire"
+  && stackable:true
+  || name:"emerald"
+  && stackable:true
+  || name:"ruby"
+  && stackable:true
+  || name:"diamond"
+  && stackable:true
+  || name:"dragonstone"
+  || name:"onyx"
+  || name:"zenyte" )
+{ icon = File("crafting.png"); }
+
+// CRAFTING — MISC
+if
+( name:"molten glass"
+  && stackable:true
+  || name:"giant seaweed"
+  && stackable:true 
+  || name:"*orb"
+  || name:"flax"
+  && stackable:true  )
+{ icon = File("crafting.png"); }
+
+// FLETCHING — UNFINISHED  change to addy and rune
+if
+( name:"* arrowtips"
+  || name:"* bolt tips"
+  || name:"* bolts (unf)" )
+{ icon = File("fletching.png"); }
+
+// SLAYER — DROPS
+if
+( name:"ancient shard"
+  || name:"brimstone key"
+  || name:"dark totem*" )
+{ textColor = "#ffffff";
+  menuTextColor = "#990000";
+  borderColor = "#990000";
+  backgroundColor = "#69990000";
+  icon = File("slayer.png"); }
+
+// MINING — ORES
+if
+( name:"* ore"
+  && stackable:true
+  || name:"coal"
+  && stackable:true
+  || name:"*clay"
+  && stackable:true )
+{icon = File("mining.png"); }
+
+// SMITHING — BARS
+if
+( name:"*bar"
+  && stackable:true
+  || name:"runite bar" )
+{ icon = File("smithing.png"); }
+
+// FISHING — RAW FISH
+if
+( name:"raw*" 
+  && stackable:true )
+{ icon = File("fishing.png"); }
+
+// WOODCUTTING — LOGS change to higher tier logs
+if
+( name:"*logs"
+  && stackable:true )
+{ icon = File("woodcutting.png"); }
+
+// WOODCUTTING — BIRD NESTS
+if
+( name:"bird nest" )
+{ textColor = "#ffffff";
+  menuTextColor = "#38761d";
+  borderColor = "#38761d";
+  backgroundColor = "#6938761d";
+  icon = File("woodcutting.png"); }
+
+// FARMING — SEEDS
+if
+( name:"*seed"
+  || name:"*spore" 
+  || name:"*frag" )
+{ icon = File("farming.png"); }
+
+// FARMING — PRODUCE
+if
+( name:"coconut"
+  && stackable:true
+  || name:"papaya fruit"
+  && stackable:true
+  || name:"white berries"
+  && stackable:true )
+{ icon = File("farming.png"); }
+
+// FOOD — HARD
+if
+( name:"blighted anglerfish"
+  || name:"blighted karambwan"
+  || name:"blighted manta ray"
+  || name:"lobster"
+  || name:"bass"
+  || name:"swordfish"
+  || name:"monkfish"
+  || name:"shark"
+  || name:"sea turtle"
+  || name:"manta ray"
+  || name:"dark crab"
+  || name:"anglerfish"
+  || name:"* potato"
+  || name:"* pie"
+  || name:"* pizza" )
+{ icon = File("hard.png"); }
+
+// FOOD — SOFT
+if
+( name:"*(1)"
+  || name:"*(2)"
+  || name:"*(3)"
+  || name:"*(4)" )
+{ icon = File("soft.png"); }
+
+// UNTRADEABLE
+if
+( tradeable:false )
+{ textColor = "#ffffff";
+  menuTextColor = "#990000";
+  borderColor = "#990000";
+  backgroundColor = "#69990000";
+  icon = CurrentItem(); }
+
+// BELOW 10K
+if
+( value:<10000 )
+{ hidden = true; }
